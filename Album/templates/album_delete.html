@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if messages %}
+{% for m in messages %}
+    <p class="bg-success p-3 text-white">{{ m }}</p>
+{% endfor %}
+{% endif %}
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete "{{ object }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Yes, Delete</button>
+   
+</form>
+{% endblock %}
